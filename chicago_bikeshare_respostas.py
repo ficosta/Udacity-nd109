@@ -30,6 +30,8 @@ input("Press Enter to continue...")
 # TODO: Print the first 20 rows using a loop to identify the data.
 print("\n\nTASK 1: Printing the first 20 samples")
 
+for ride in data_list[0:20]:
+    print(ride)
 # Let's change the data_list to remove the header from it.
 data_list = data_list[1:]
 
@@ -39,9 +41,9 @@ data_list = data_list[1:]
 input("Press Enter to continue...")
 # TASK 2
 # TODO: Print the `gender` of the first 20 rows
-
 print("\nTASK 2: Printing the genders of the first 20 samples")
-
+for ride in data_list[0:20]:
+    print(ride[6])
 
 # Cool! We can get the rows(samples) iterating with a for and the columns(features) by index.
 # But it's still hard to get a column in a list. Example: List with all genders
@@ -52,6 +54,8 @@ input("Press Enter to continue...")
 def column_to_list(data, index):
     column_list = []
     # Tip: You can use a for to iterate over the samples, get the feature by index and append into a list
+    for feature in data:
+        column_list.append(feature[index])
     return column_list
 
 
@@ -69,8 +73,8 @@ input("Press Enter to continue...")
 # Now we know how to access the features, let's count how many Males and Females the dataset have
 # TASK 4
 # TODO: Count each gender. You should not use a function to do that.
-male = 0
-female = 0
+male = column_to_list(data_list, -2).count('Male')
+female = column_to_list(data_list, -2).count('Female')
 
 
 # Checking the result
@@ -87,8 +91,8 @@ input("Press Enter to continue...")
 # TODO: Create a function to count the genders. Return a list
 # Should return a list with [count_male, counf_female] (e.g., [10, 15] means 10 Males, 15 Females)
 def count_gender(data_list):
-    male = 0
-    female = 0
+    male = column_to_list(data_list, -2).count('Male')
+    female = column_to_list(data_list, -2).count('Female')
     return [male, female]
 
 
@@ -190,7 +194,7 @@ input("Press Enter to continue...")
 # TASK 11
 # Go back and make sure you documented your functions. Explain the input, output and what it do. Example:
 # def new_function(param1: int, param2: str) -> list:
-      """
+"""
       Example function with annotations.
       Args:
           param1: The first parameter.
@@ -198,7 +202,7 @@ input("Press Enter to continue...")
       Returns:
           List of X values
 
-      """
+"""
 
 input("Press Enter to continue...")
 # TASK 12 - Challenge! (Optional)
