@@ -111,9 +111,13 @@ input("Press Enter to continue...")
 # TODO: Create a function to get the most popular gender and print the gender as string.
 # We expect to see "Male", "Female" or "Equal" as answer.
 def most_popular_gender(data_list):
-        male = column_to_list(data_list, -2).count('Male')
-        female = column_to_list(data_list, -2).count('Female')
-    answer = ""
+    male = column_to_list(data_list, -2).count('Male')
+    female = column_to_list(data_list, -2).count('Female')
+    if (male > female):
+        answer = "Male"
+    else:
+        answer = "Female"
+
     return answer
 
 
@@ -167,7 +171,20 @@ max_trip = 0.
 mean_trip = 0.
 median_trip = 0.
 
+all=0
 
+for trip in trip_duration_list:
+    trip = int(trip)
+    if trip < min_trip or min_trip == 0:
+        min_trip = trip
+    if trip > max_trip:
+        max_trip = trip
+    all += trip
+
+mean_trip = all / len(trip_duration_list)
+trip_duration_list = trip_duration_list.sort()
+median_trip = trip_duration_list[int(len(trip_duration_list)/2)]
+print(int(len(trip_duration_list)/2))
 print("\nTASK 9: Printing the min, max, mean and median")
 print("Min: ", min_trip, "Max: ", max_trip, "Mean: ", mean_trip, "Median: ", median_trip)
 
