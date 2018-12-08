@@ -111,6 +111,8 @@ input("Press Enter to continue...")
 # TODO: Create a function to get the most popular gender and print the gender as string.
 # We expect to see "Male", "Female" or "Equal" as answer.
 def most_popular_gender(data_list):
+        male = column_to_list(data_list, -2).count('Male')
+        female = column_to_list(data_list, -2).count('Female')
     answer = ""
     return answer
 
@@ -147,7 +149,7 @@ input("Press Enter to continue...")
 male, female = count_gender(data_list)
 print("\nTASK 8: Why the following condition is False?")
 print("male + female == len(data_list):", male + female == len(data_list))
-answer = "Type your answer here."
+answer = 'Temos campos vazios.'
 print("Answer:", answer)
 
 # ------------ DO NOT CHANGE ANY CODE HERE ------------
