@@ -182,7 +182,8 @@ for trip in trip_duration_list:
     all += trip
 
 mean_trip = all / len(trip_duration_list)
-trip_duration_list = trip_duration_list.sort()
+trip_duration_list = trip_duration_list.sort(key=int)
+print(trip_duration_list)
 median_trip = trip_duration_list[int(len(trip_duration_list)/2)]
 print(int(len(trip_duration_list)/2))
 print("\nTASK 9: Printing the min, max, mean and median")
